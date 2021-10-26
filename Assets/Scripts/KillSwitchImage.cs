@@ -3,27 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ControllerBatteryLED : MonoBehaviour
+public class KillSwitchImage : MonoBehaviour
 {
 
-    public static float timeRemaining = 10;
-    public static bool lowBattery = true;
+    public static bool isOn = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown("j")) {
+            if(isOn) isOn = false;
+            else isOn = true;
+        }
 
-        if (timeRemaining > 0) {
-            timeRemaining -= Time.deltaTime;
+        if (isOn) {
+            GetComponent<Image>().color = Color.green;
         }
         else {
-            lowBattery = false;
-            timeRemaining = 0;
             GetComponent<Image>().color = Color.red;
         }
     }

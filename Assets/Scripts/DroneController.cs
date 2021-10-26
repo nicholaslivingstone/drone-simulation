@@ -31,7 +31,9 @@ public class DroneController : MonoBehaviour
         float roll = Input.GetAxis("Roll");
         float yaw = Input.GetAxis("Yaw");
 
-        flightController.UpdateRotors(thrust, pitch, roll, yaw);
+        if (KillSwitchImage.isOn) {
+            flightController.UpdateRotors(thrust, pitch, roll, yaw);
+        }
 
         // Track distance traveled
         Vector3 distanceVector = transform.position - oldPos;
