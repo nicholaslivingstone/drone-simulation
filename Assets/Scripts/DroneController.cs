@@ -27,7 +27,7 @@ public class DroneController : MonoBehaviour
         float roll = Input.GetAxis("Roll");
         float yaw = Input.GetAxis("Yaw");
 
-        flightController.UpdateControls(thrust, pitch, roll, yaw);
+        flightController.UpdateRotors(thrust, pitch, roll, yaw);
     }
 
 }
