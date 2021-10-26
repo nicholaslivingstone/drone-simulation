@@ -26,10 +26,10 @@ public class DroneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float thrust = Input.GetAxis("Throttle");
-        float pitch = Input.GetAxis("Pitch");
-        float roll = Input.GetAxis("Roll");
-        float yaw = Input.GetAxis("Yaw");
+        thrust = Input.GetAxis("Throttle");
+        pitch = Input.GetAxis("Pitch");
+        roll = Input.GetAxis("Roll");
+        yaw = Input.GetAxis("Yaw");
 
         if (KillSwitchImage.isOn) {
             flightController.UpdateRotors(thrust, pitch, roll, yaw);

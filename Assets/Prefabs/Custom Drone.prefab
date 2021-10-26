@@ -3364,6 +3364,7 @@ GameObject:
   - component: {fileID: 1935566082}
   - component: {fileID: 1935566083}
   - component: {fileID: 1935566084}
+  - component: {fileID: 2772666902052114492}
   m_Layer: 0
   m_Name: Custom Drone
   m_TagString: Player
@@ -3434,11 +3435,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa0f63c5e4b57f449bada1c6e6bfe75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
   thrustScale: 10
   rotorFR: {fileID: 2772666900197334398}
   rotorFL: {fileID: 2772666900197350952}
   rotorBR: {fileID: 2772666900197291178}
   rotorBL: {fileID: 2772666900197341726}
+  enablePitch: 1
+  enableRoll: 0
+  realPhysics: 1
 --- !u!114 &1935566083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3463,6 +3468,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f9bf68ffe90a448bff80ebfd7d9c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2772666902052114492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2772666900186068280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30456588f447e1c4d8247da8a513ce19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 2772666900186349760}
 --- !u!1 &2772666900186070316
 GameObject:
   m_ObjectHideFlags: 0

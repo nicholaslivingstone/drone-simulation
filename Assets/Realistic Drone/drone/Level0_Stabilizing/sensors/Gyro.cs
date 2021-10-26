@@ -70,13 +70,13 @@ public class Gyro : MonoBehaviour {
     /// </summary>
     void Start()
     {
-        droneMovementController dmc = gameObject.GetComponent<droneMovementController>();
+        FlightController dmc = gameObject.GetComponent<FlightController>();
 
         // associate the rotors
-        helixO1 = dmc.helixO1;
-        helixO2 = dmc.helixO2;
-        helixV1 = dmc.helixV1;
-        helixV2 = dmc.helixV2;
+        helixO1 = dmc.rotorFR;
+        helixO2 = dmc.rotorBL;
+        helixV1 = dmc.rotorBR;
+        helixV2 = dmc.rotorFL;
 
         // finds the rotors position
         Vector3 v1 = helixV1.transform.position;

@@ -14,6 +14,7 @@ public class IMU : MonoBehaviour
     void Start() {
         last = transform.position;
     }
+    
     void Update(){   
         velocity = ((transform.position - last).magnitude) / Time.deltaTime;
         distancemoved = (transform.position - last) * Time.deltaTime ;
