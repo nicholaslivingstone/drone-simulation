@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class DroneController : MonoBehaviour
 {
+
     private Rigidbody droneRB; // Drone rigid body 
+
+    private bool powerOn = false; 
 
     private FlightController flightController; 
 
@@ -26,20 +29,27 @@ public class DroneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetButtonDown("Power")){
+            powerOn = !powerOn; 
+        }
+
         thrust = Input.GetAxis("Throttle");
         pitch = Input.GetAxis("Pitch");
         roll = Input.GetAxis("Roll");
         yaw = Input.GetAxis("Yaw");
 
-        if (KillSwitchImage.isOn) {
-            flightController.UpdateRotors(thrust, pitch, roll, yaw);
-        }
+        flightController.UpdateRotors(thrust, pitch, roll, yaw);
+        
 
         // Track distance traveled
         Vector3 distanceVector = transform.position - oldPos;
         float distanceThisFrame = distanceVector.magnitude;
         totalDistance += distanceThisFrame;
         oldPos = transform.position;
+    }
+
+    public bool GetPowerOn(){
+        return powerOn; 
     }
 
 }

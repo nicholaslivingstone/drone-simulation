@@ -8,21 +8,12 @@ public class KillSwitchImage : MonoBehaviour
 
     public static bool isOn = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public DroneController drone;
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("j")) {
-            if(isOn) isOn = false;
-            else isOn = true;
-        }
-
-        if (isOn) {
+        if (drone.GetPowerOn()) {
             GetComponent<Image>().color = Color.green;
         }
         else {

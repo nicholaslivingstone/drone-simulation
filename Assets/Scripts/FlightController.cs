@@ -21,6 +21,8 @@ public class FlightController : MonoBehaviour
     public bool realPhysics = false; 
 
     private Rigidbody droneRB; 
+
+    private DroneController drone; 
     
     private IMU imu; 
 
@@ -31,6 +33,7 @@ public class FlightController : MonoBehaviour
     {
         rotors = new rotor[]{rotorBL, rotorBR, rotorFL, rotorFR};
         imu = GetComponent<IMU>(); 
+        drone = GetComponent<DroneController>();
     }
 
     public void UpdateRotors(float thrustInput, float pitchInput, float rollInput, float yawInput){
@@ -40,7 +43,14 @@ public class FlightController : MonoBehaviour
                 powerBR,
                 powerBL;
 
-        if(thrustInput == 0)
+        if(!drone.GetPowerOn()){
+            foreach(rotor r in rotors){
+                r.setPower(0);
+            }
+            return; 
+        }
+
+        if(thrustInput == 0 && drone)
             upwardThrust =  9.8f / 4f;
         else{
             thrustInput *= speed;
