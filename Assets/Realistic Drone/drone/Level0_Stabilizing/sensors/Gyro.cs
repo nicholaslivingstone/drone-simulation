@@ -73,10 +73,10 @@ public class Gyro : MonoBehaviour {
         FlightController dmc = gameObject.GetComponent<FlightController>();
 
         // associate the rotors
-        helixO1 = dmc.rotorFR;
-        helixO2 = dmc.rotorBL;
-        helixV1 = dmc.rotorBR;
-        helixV2 = dmc.rotorFL;
+        helixO1 = transform.Find("rotorFR").GetComponent<rotor>();
+        helixO2 = transform.Find("rotorBL").GetComponent<rotor>();
+        helixV1 = transform.Find("rotorBR").GetComponent<rotor>();
+        helixV2 = transform.Find("rotorFL").GetComponent<rotor>();
 
         // finds the rotors position
         Vector3 v1 = helixV1.transform.position;

@@ -8,15 +8,18 @@ public class IMU : MonoBehaviour
     private Vector3 distancemoved=Vector3.zero;
     private Vector3 lastdistancemoved=Vector3.zero;
     private Vector3 last;
+
+    private Rigidbody droneRB; 
     
-    float velocity; 
+    Vector3 velocity; 
 
     void Start() {
         last = transform.position;
+        droneRB = GetComponent<Rigidbody>(); 
     }
     
     void Update(){   
-        velocity = ((transform.position - last).magnitude) / Time.deltaTime;
+        velocity = droneRB.velocity;
         distancemoved = (transform.position - last) * Time.deltaTime ;
         acceleration = distancemoved - lastdistancemoved;
         lastdistancemoved = distancemoved;
@@ -27,7 +30,7 @@ public class IMU : MonoBehaviour
         return acceleration;
     }
     
-    public float GetVelocity(){
+    public Vector3 GetVelocity(){
         return velocity;
     }
 }

@@ -33,10 +33,10 @@ public class DroneController : MonoBehaviour
             powerOn = !powerOn; 
         }
 
-        thrust = Input.GetAxis("Throttle");
-        pitch = Input.GetAxis("Pitch");
-        roll = Input.GetAxis("Roll");
-        yaw = Input.GetAxis("Yaw");
+        thrust = GetInput("Throttle");
+        pitch = GetInput("Pitch");
+        roll = GetInput("Roll");
+        yaw = GetInput("Yaw");
 
         flightController.UpdateRotors(thrust, pitch, roll, yaw);
         
@@ -50,6 +50,15 @@ public class DroneController : MonoBehaviour
 
     public bool GetPowerOn(){
         return powerOn; 
+    }
+
+    private float GetInput(string n){
+
+        float temp = Input.GetAxis(n + "2");
+        if(temp == 0)
+            temp = Input.GetAxis(n);
+
+        return temp; 
     }
 
 }

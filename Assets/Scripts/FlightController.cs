@@ -7,10 +7,14 @@ public class FlightController : MonoBehaviour
     public float speed = 10f; 
     public float thrustScale = 10f; 
 
-    public rotor rotorFR; // Front Left rotor
-    public rotor rotorFL; // Front Right rotor
-    public rotor rotorBR; // Back Right rotor
-    public rotor rotorBL; // Back Left rotor
+    public float hoverAdjust = 1f; 
+
+    public float pitchAdjustment = 1f; 
+
+    private rotor rotorFR; // Front Left rotor
+    private rotor rotorFL; // Front Right rotor
+    private rotor rotorBR; // Back Right rotor
+    private rotor rotorBL; // Back Left rotor
 
     private rotor[] rotors;
 
@@ -31,6 +35,11 @@ public class FlightController : MonoBehaviour
 
     void Start()
     {
+        rotorBL = transform.Find("rotorBL").GetComponent<rotor>();
+        rotorBR = transform.Find("rotorBR").GetComponent<rotor>();
+        rotorFL = transform.Find("rotorFL").GetComponent<rotor>();
+        rotorFR = transform.Find("rotorFR").GetComponent<rotor>();
+
         rotors = new rotor[]{rotorBL, rotorBR, rotorFL, rotorFR};
         imu = GetComponent<IMU>(); 
         drone = GetComponent<DroneController>();
@@ -51,10 +60,11 @@ public class FlightController : MonoBehaviour
         }
 
         if(thrustInput == 0 && drone)
-            upwardThrust =  9.8f / 4f;
+            upwardThrust =  (-imu.GetVelocity().y * hoverAdjust + 9.8f )/ 4f;
         else{
             thrustInput *= speed;
-            upwardThrust = (-imu.GetAcceleration().y + 9.8f + thrustInput) / 4f;
+            //upwardThrust = (-imu.GetAcceleration().y + 9.8f + thrustInput) / 4f;
+            upwardThrust = (9.8f + thrustInput) / 4f;
         }
 
         powerFR = upwardThrust;
@@ -63,7 +73,7 @@ public class FlightController : MonoBehaviour
         powerBR = upwardThrust;
 
         if(pitchInput != 0 && enablePitch){
-            pitchInput *= 0.25f;
+            pitchInput *= pitchAdjustment;
 
             powerFR -= pitchInput; 
             powerFL -= pitchInput; 
