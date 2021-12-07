@@ -52,7 +52,7 @@ public class FlightController : MonoBehaviour
                 powerBR,
                 powerBL;
 
-        if(!drone.GetPowerOn()){
+        if(!drone.isPowered()){
             foreach(rotor r in rotors){
                 r.setPower(0);
             }

@@ -5,6 +5,8 @@ public class rotor : MonoBehaviour {
 
     Rigidbody rBody;
     float power;
+    public float animation_scale = 700; 
+    public DroneController drone; 
     
     /// <summary>
     /// Specify the verse of the rotation
@@ -43,8 +45,9 @@ public class rotor : MonoBehaviour {
     /// <summary>
     /// Function called once per frame
     /// </summary>
-    void Update() { if (animationActivated) transform.Rotate(0, 0, power * 700 * Time.deltaTime * (counterclockwise ? -1 : 1)); }
-
+    void Update() { if (animationActivated && drone.isPowered()) {
+        transform.Rotate(0, 0, (1 + power) * animation_scale * Time.deltaTime * (counterclockwise ? -1 : 1)); }
+    }
     /// <summary>
     /// Function at regular time interval
     /// </summary>

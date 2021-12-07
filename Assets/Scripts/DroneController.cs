@@ -90,7 +90,7 @@ public class DroneController : MonoBehaviour
         oldPos = transform.position;
     }
 
-    public bool GetPowerOn(){
+    public bool isPowered(){
         return powerOn; 
     }
 

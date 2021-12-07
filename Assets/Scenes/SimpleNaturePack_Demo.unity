@@ -5927,6 +5927,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2772666900197291178, guid: d6e614682b918bd448954b3a14f3b56c, type: 3}
+      propertyPath: drone
+      value: 
+      objectReference: {fileID: 1742005905}
+    - target: {fileID: 2772666900197291178, guid: d6e614682b918bd448954b3a14f3b56c, type: 3}
+      propertyPath: animation_scale
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2772666900197334398, guid: d6e614682b918bd448954b3a14f3b56c, type: 3}
+      propertyPath: drone
+      value: 
+      objectReference: {fileID: 1742005905}
+    - target: {fileID: 2772666900197334398, guid: d6e614682b918bd448954b3a14f3b56c, type: 3}
+      propertyPath: animation_scale
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2772666900197341726, guid: d6e614682b918bd448954b3a14f3b56c, type: 3}
+      propertyPath: drone
+      value: 
+      objectReference: {fileID: 1742005905}
+    - target: {fileID: 2772666900197341726, guid: d6e614682b918bd448954b3a14f3b56c, type: 3}
+      propertyPath: animation_scale
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2772666900197350952, guid: d6e614682b918bd448954b3a14f3b56c, type: 3}
+      propertyPath: drone
+      value: 
+      objectReference: {fileID: 1742005905}
+    - target: {fileID: 2772666900197350952, guid: d6e614682b918bd448954b3a14f3b56c, type: 3}
+      propertyPath: animation_scale
+      value: 2000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6e614682b918bd448954b3a14f3b56c, type: 3}
 --- !u!1 &1829969482 stripped
