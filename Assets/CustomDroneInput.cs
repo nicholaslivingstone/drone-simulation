@@ -8,12 +8,18 @@ public class CustomDroneInput : MonoBehaviour
 
     DroneControllerActions droneControllerActions;
 
+    public AudioSource droneAudio; 
     DroneMovement droneMovement;
+    DronePropelers propelers; 
+    private bool powered; 
 
     // Start is called before the first frame update
     void Start()
     {
         droneMovement = GetComponent<DroneMovement>();
+        propelers = GetComponent<DronePropelers>();
+        powered = false; 
+        setPower(); 
 
         droneControllerActions = new DroneControllerActions();
 
@@ -48,6 +54,9 @@ public class CustomDroneInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(droneControllerActions.PowerBttn.WasPressed)
+            changePower();
+
         droneMovement.customFeed_backward = droneControllerActions.Backward.Value;
         droneMovement.customFeed_forward = droneControllerActions.Forward.Value;
         droneMovement.customFeed_leftward = droneControllerActions.TiltLeft.Value;
@@ -56,5 +65,20 @@ public class CustomDroneInput : MonoBehaviour
         droneMovement.customFeed_rotateRight = droneControllerActions.RotateRight.Value;
         droneMovement.customFeed_upward = droneControllerActions.Up.Value;
         droneMovement.customFeed_downward = droneControllerActions.Down.Value;
+    }
+
+    void setPower(){
+        droneMovement.enabled = powered; 
+        propelers.enabled = powered; 
+        droneAudio.enabled = powered;
+    }
+
+    void changePower(){
+        powered = !powered;
+        setPower();
+    }
+
+    public bool isPowered(){
+        return powered; 
     }
 }

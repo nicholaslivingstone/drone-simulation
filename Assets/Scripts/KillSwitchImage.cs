@@ -8,7 +8,7 @@ public class KillSwitchImage : MonoBehaviour
 
     public static bool isOn = true;
 
-    public DroneControllerOrig drone;
+    public CustomDroneInput drone;
 
     // Update is called once per frame
     void Update()

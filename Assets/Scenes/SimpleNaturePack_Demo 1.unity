@@ -3790,6 +3790,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 891904494}
+--- !u!82 &902364776 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8249904, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+  m_PrefabInstance: {fileID: 1908261228}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &912011107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6200,7 +6205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1630213309
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6232,7 +6237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edf1d2e90c83d004db16697a7308776f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drone: {fileID: 0}
+  drone: {fileID: 2143077703}
 --- !u!114 &1630213312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7291,6 +7296,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8249904, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114476214691858998, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114476214691858998, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
       propertyPath: customFeed
       value: 1
@@ -7324,8 +7337,16 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 114476214691858998, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+      propertyPath: mobile_turned_on
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114476214691858998, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
       propertyPath: wantedForwardTilt
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114476214691858998, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+      propertyPath: joystick_turned_on
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114476214691858998, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
       propertyPath: sideMovementAmount
@@ -7346,6 +7367,10 @@ PrefabInstance:
     - target: {fileID: 114476214691858998, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
       propertyPath: movementForwardSpeed
       value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 114982152704663194, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
@@ -8448,3 +8473,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb4abdda79c6dd74aa28cac62b6b0da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  droneAudio: {fileID: 902364776}
