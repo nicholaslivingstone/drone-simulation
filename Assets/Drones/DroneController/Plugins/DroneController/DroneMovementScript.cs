@@ -774,20 +774,20 @@ namespace DroneController
 			/// </summary>
 			public void RotationUpdateLoop_TrickRotation()
             {
-                if (mainCamera.pickedMyDrone == true)
-                {
-                    if (mainCamera.ourDrone.transform == transform)
-                    {
-                        if ((Input.GetKeyDown(barrelRollLeft) || Input.GetKeyDown(joystick_barrelRollLeft)) && idle == false)
-                        {
-                            wantedYRotation -= 100;
-                        }
-                        if ((Input.GetKeyDown(barrelRollRight) || Input.GetKeyDown(joystick_barrelRollRight)) && idle == false)
-                        {
-                            wantedYRotation += 100;
-                        }
-                    }
-                }
+                // if (mainCamera.pickedMyDrone == true)
+                // {
+                //     if (mainCamera.ourDrone.transform == transform)
+                //     {
+                //         if ((Input.GetKeyDown(barrelRollLeft) || Input.GetKeyDown(joystick_barrelRollLeft)) && idle == false)
+                //         {
+                //             wantedYRotation -= 100;
+                //         }
+                //         if ((Input.GetKeyDown(barrelRollRight) || Input.GetKeyDown(joystick_barrelRollRight)) && idle == false)
+                //         {
+                //             wantedYRotation += 100;
+                //         }
+                //     }
+                // }
             }
 
             /// <summary>
@@ -802,8 +802,8 @@ namespace DroneController
                  */
 				if (customFeed == true) return;
 
-                if ((mainCamera.pickedMyDrone == true && mainCamera.ourDrone.transform == transform))
-                {
+                // if ((mainCamera.pickedMyDrone == true && mainCamera.ourDrone.transform == transform))
+                // {
                     if (mobile_turned_on == false && joystick_turned_on == false)
                     {
                         W = (Input.GetKey(forward)) ? true : false;
@@ -831,7 +831,7 @@ namespace DroneController
                         Right_Analog_Y_Translation();
                         Right_Analog_X_Translation();
                     }
-                }
+                // }
             }
 
             /// <summary>
