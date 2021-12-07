@@ -52,6 +52,9 @@ public class DroneController : MonoBehaviour
         droneControllerActions.TiltRight.AddDefaultBinding(Key.RightArrow); 
         droneControllerActions.TiltRight.AddDefaultBinding(InputControlType.RightStickRight);  
 
+        droneControllerActions.PowerBttn.AddDefaultBinding(Key.Space);
+        droneControllerActions.PowerBttn.AddDefaultBinding(InputControlType.RightCommand); 
+
 
         flightController = GetComponent<FlightController>(); 
         oldPos = transform.position;
@@ -60,9 +63,12 @@ public class DroneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Power")){
-            powerOn = !powerOn; 
-        }
+        // if(Input.GetButtonDown("Power")){
+        //     powerOn = !powerOn; 
+        // }
+
+        if(droneControllerActions.PowerBttn.WasPressed)
+            powerOn = !powerOn;
 
         // thrust = GetInput("Throttle");
         // pitch = GetInput("Pitch");
