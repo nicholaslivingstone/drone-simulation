@@ -13,7 +13,7 @@ public class KillSwitchImage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (drone.GetPowerOn()) {
+        if (drone.isPowered()) {
             GetComponent<Image>().color = Color.green;
         }
         else {
