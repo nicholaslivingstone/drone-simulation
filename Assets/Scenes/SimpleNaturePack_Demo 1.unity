@@ -3032,6 +3032,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8031339192871210686, guid: 3f9b178ccd3b86f4ebbfc1f5a2815e56, type: 3}
   m_PrefabInstance: {fileID: 648889921}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &657447002 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6437949948511776739, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+  m_PrefabInstance: {fileID: 1908261228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4df30cb0ad1654d85636fb116ee767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &668827589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7372,6 +7383,46 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8013741942404488197, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013741942404488197, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013741942404488197, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013741942404488197, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013741942404488197, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013741942404488197, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013741942404488197, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013741942404488197, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013741942404488197, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013741942404488197, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a913bd0ce1ec42058e4230d7b60c237, type: 3}
 --- !u!1001 &1912271317
@@ -8474,3 +8525,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   droneAudio: {fileID: 902364776}
+  droneCam: {fileID: 657447002}

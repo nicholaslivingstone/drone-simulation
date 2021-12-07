@@ -9,6 +9,7 @@ public class CustomDroneInput : MonoBehaviour
     DroneControllerActions droneControllerActions;
 
     public AudioSource droneAudio; 
+    public CaptureImage droneCam; 
     DroneMovement droneMovement;
     DronePropelers propelers; 
     private bool powered; 
@@ -49,6 +50,8 @@ public class CustomDroneInput : MonoBehaviour
 
         droneControllerActions.PowerBttn.AddDefaultBinding(Key.Space);
         droneControllerActions.PowerBttn.AddDefaultBinding(InputControlType.RightCommand); 
+
+        droneControllerActions.TakeImg.AddDefaultBinding(InputControlType.Action2); 
     }
 
     // Update is called once per frame
@@ -65,6 +68,11 @@ public class CustomDroneInput : MonoBehaviour
         droneMovement.customFeed_rotateRight = droneControllerActions.RotateRight.Value;
         droneMovement.customFeed_upward = droneControllerActions.Up.Value;
         droneMovement.customFeed_downward = droneControllerActions.Down.Value;
+    }
+
+    private void LateUpdate() {
+        if(droneControllerActions.TakeImg.WasPressed)
+            droneCam.TakeHiResShot();
     }
 
     void setPower(){
