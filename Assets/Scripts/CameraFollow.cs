@@ -1,4 +1,5 @@
 using UnityEngine;
+using InControl;
 
 public class CameraFollow : MonoBehaviour {
 
@@ -11,8 +12,20 @@ public class CameraFollow : MonoBehaviour {
 
     private float rotation = 0f; 
 
+    DroneControllerActions droneControllerActions; 
+
+    private void Start() {
+        droneControllerActions = new DroneControllerActions();
+
+        droneControllerActions.CamRight.AddDefaultBinding(Key.E);
+        droneControllerActions.CamRight.AddDefaultBinding(InputControlType.RightBumper);
+
+        droneControllerActions.CamLeft.AddDefaultBinding(Key.Q);
+        droneControllerActions.CamLeft.AddDefaultBinding(InputControlType.LeftBumper); 
+    }
+
     private void Update() {
-        rotation += Input.GetAxis("Camera Rotate") * RotationSpeed;
+        rotation += droneControllerActions.RotateCam.Value * RotationSpeed;
 
         if(rotation > 360 || rotation < -360){
             rotation = 0f; 

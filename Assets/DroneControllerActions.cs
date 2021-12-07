@@ -21,6 +21,12 @@ public class DroneControllerActions : PlayerActionSet
 
     public PlayerAction PowerBttn;
 
+    public PlayerAction CamRight;
+
+    public PlayerAction CamLeft;
+
+    public PlayerOneAxisAction RotateCam;
+
     public DroneControllerActions(){
         Up = CreatePlayerAction("Move Up");
         Down = CreatePlayerAction("Move Down");
@@ -31,7 +37,10 @@ public class DroneControllerActions : PlayerActionSet
         Forward = CreatePlayerAction("Move Drone Forward");
         Backward = CreatePlayerAction("Move Drone Backward");
         PowerBttn = CreatePlayerAction("Power Button On Drone");
+        CamLeft = CreatePlayerAction("Rotate Camera Left");
+        CamRight = CreatePlayerAction("Rotate Camera Right");
 
+        RotateCam = CreateOneAxisPlayerAction(CamLeft, CamRight);
         Yaw = CreateOneAxisPlayerAction(RotateLeft, RotateRight);
         Thrust = CreateOneAxisPlayerAction(Down, Up);
         Roll = CreateOneAxisPlayerAction(TiltLeft, TiltRight);
