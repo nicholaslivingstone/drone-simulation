@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using InControl;
 
 
 public class droneMovementController : MonoBehaviour {
@@ -366,6 +367,8 @@ public class droneMovementController : MonoBehaviour {
     int ticket3;
     int ticket4;
 
+    DroneControllerActions droneControllerActions;
+
     // classes used to save the stats of the drone. Used for debugging
     dataSaver dS;
     dataSaver dSOut;
@@ -377,6 +380,35 @@ public class droneMovementController : MonoBehaviour {
     /// </summary>
     void Start()
     {
+        droneControllerActions = new DroneControllerActions();
+
+        droneControllerActions.Up.AddDefaultBinding(Key.W); 
+        droneControllerActions.Up.AddDefaultBinding(InputControlType.LeftStickUp); 
+
+        droneControllerActions.Down.AddDefaultBinding(Key.S); 
+        droneControllerActions.Down.AddDefaultBinding(InputControlType.LeftStickDown); 
+
+        droneControllerActions.RotateLeft.AddDefaultBinding(Key.A); 
+        droneControllerActions.RotateLeft.AddDefaultBinding(InputControlType.LeftStickLeft); 
+
+        droneControllerActions.RotateRight.AddDefaultBinding(Key.D); 
+        droneControllerActions.RotateRight.AddDefaultBinding(InputControlType.LeftStickRight); 
+
+        droneControllerActions.Forward.AddDefaultBinding(Key.UpArrow); 
+        droneControllerActions.Forward.AddDefaultBinding(InputControlType.RightStickUp);
+
+        droneControllerActions.Backward.AddDefaultBinding(Key.DownArrow); 
+        droneControllerActions.Backward.AddDefaultBinding(InputControlType.RightStickDown);  
+
+        droneControllerActions.TiltLeft.AddDefaultBinding(Key.LeftArrow); 
+        droneControllerActions.TiltLeft.AddDefaultBinding(InputControlType.RightStickLeft);  
+
+        droneControllerActions.TiltRight.AddDefaultBinding(Key.RightArrow); 
+        droneControllerActions.TiltRight.AddDefaultBinding(InputControlType.RightStickRight);  
+
+        droneControllerActions.PowerBttn.AddDefaultBinding(Key.Space);
+        droneControllerActions.PowerBttn.AddDefaultBinding(InputControlType.RightCommand); 
+
         // initialize the DataSaver class in this way
         //dSOut = new dataSaver("outputData", new string[] { "pOut", "iOut", "dOut", "u" });
         //dS = new dataSaver("zData", new string[] {"Err", "distance", "vel", "idealVel","acc", "idealAcc" });
@@ -424,19 +456,24 @@ public class droneMovementController : MonoBehaviour {
         // wait 0.1 sec to avoid inizialization problem
         if ((startAfter -= Time.deltaTime) > 0) return;
              
-        if (stayOnFixedPoint)            
-        {
-            Vector3 p = mag.worldToLocalPoint(routePosition, target.position);
-            targetZ = p.z;
-            targetX = p.x;
-            targetY = routePosition.y;
-        }
-        else
-        {          
-            targetZ = mag.worldToLocalPoint(target.position, lookingAtPoint).z;
-            targetX = mag.worldToLocalPoint(routePosition, lookingAtPoint).x;
-            targetY = (routePosition.y + target.position.y) / 2f;
-        }
+        // if (stayOnFixedPoint)            
+        // {
+        //     Vector3 p = mag.worldToLocalPoint(routePosition, target.position);
+        //     targetZ = p.z;
+        //     targetX = p.x;
+        //     targetY = routePosition.y;
+        // }
+        // else
+        // {          
+        //     targetZ = mag.worldToLocalPoint(target.position, lookingAtPoint).z;
+        //     targetX = mag.worldToLocalPoint(routePosition, lookingAtPoint).x;
+        //     targetY = (routePosition.y + target.position.y) / 2f;
+        // }
+
+        
+        targetZ = droneControllerActions.Thrust.Value * 1000 + transform.position.z;
+        targetX = droneControllerActions.Pitch.Value * 10 + transform.position.x;
+        targetY = droneControllerActions.Roll.Value * 10 + transform.position.y;
 
         
         Vector3 thrustVector = Quaternion.AngleAxis(-45, Vector3.up) *  new Vector3(targetX, targetY - transform.position.y, targetZ);
