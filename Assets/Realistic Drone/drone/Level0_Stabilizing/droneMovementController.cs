@@ -456,24 +456,27 @@ public class droneMovementController : MonoBehaviour {
         // wait 0.1 sec to avoid inizialization problem
         if ((startAfter -= Time.deltaTime) > 0) return;
              
-        // if (stayOnFixedPoint)            
-        // {
-        //     Vector3 p = mag.worldToLocalPoint(routePosition, target.position);
-        //     targetZ = p.z;
-        //     targetX = p.x;
-        //     targetY = routePosition.y;
-        // }
-        // else
-        // {          
-        //     targetZ = mag.worldToLocalPoint(target.position, lookingAtPoint).z;
-        //     targetX = mag.worldToLocalPoint(routePosition, lookingAtPoint).x;
-        //     targetY = (routePosition.y + target.position.y) / 2f;
-        // }
+        if (stayOnFixedPoint)            
+        {
+        // target.position = transform.position + transform.forward;
+
+
+        Vector3 p = mag.worldToLocalPoint(routePosition, target.position);
+        targetZ = p.z;
+        targetX = p.x;
+        targetY = routePosition.y;
+        }
+        else
+        {          
+        targetZ = mag.worldToLocalPoint(target.position, lookingAtPoint).z;
+        targetX = mag.worldToLocalPoint(routePosition, lookingAtPoint).x;
+        targetY = (routePosition.y + target.position.y) / 2f;
+        }
 
         
-        targetZ = droneControllerActions.Thrust.Value * 1000 + transform.position.z;
-        targetX = droneControllerActions.Pitch.Value * 10 + transform.position.x;
-        targetY = droneControllerActions.Roll.Value * 10 + transform.position.y;
+        // targetZ = droneControllerActions.Thrust.Value * 1000 + transform.position.z;
+        // targetX = droneControllerActions.Pitch.Value * 10 + transform.position.x;
+        // targetY = droneControllerActions.Roll.Value * 10 + transform.position.y;
 
         
         Vector3 thrustVector = Quaternion.AngleAxis(-45, Vector3.up) *  new Vector3(targetX, targetY - transform.position.y, targetZ);

@@ -6,7 +6,7 @@ public class rotor : MonoBehaviour {
     Rigidbody rBody;
     float power;
     public float animation_scale = 700; 
-    public DroneController drone; 
+    public DroneControllerOrig drone; 
     
     /// <summary>
     /// Specify the verse of the rotation

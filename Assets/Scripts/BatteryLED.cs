@@ -16,7 +16,7 @@ public class BatteryLED : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(DroneController.totalDistance > 10) {
+        if(DroneControllerOrig.totalDistance > 10) {
             lt.color = Color.red;
         }
     }

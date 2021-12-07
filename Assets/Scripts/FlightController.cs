@@ -26,7 +26,7 @@ public class FlightController : MonoBehaviour
 
     private Rigidbody droneRB; 
 
-    private DroneController drone; 
+    private DroneControllerOrig drone; 
     
     private IMU imu; 
 
@@ -42,7 +42,7 @@ public class FlightController : MonoBehaviour
 
         rotors = new rotor[]{rotorBL, rotorBR, rotorFL, rotorFR};
         imu = GetComponent<IMU>(); 
-        drone = GetComponent<DroneController>();
+        drone = GetComponent<DroneControllerOrig>();
     }
 
     public void UpdateRotors(float thrustInput, float pitchInput, float rollInput, float yawInput){
